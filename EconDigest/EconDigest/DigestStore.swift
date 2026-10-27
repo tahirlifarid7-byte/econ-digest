@@ -6,9 +6,9 @@ final class DigestStore: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
 
-    /// Where the backend serves digest.json (see README). The simulator reaches the Mac at localhost.
+    /// Where digest.json is published (GitHub Pages, updated daily by .github/workflows/daily-digest.yml).
     @Published var serverURL: String {
-        didSet { UserDefaults.standard.set(serverURL, forKey: "serverURL") }
+        didSet { UserDefaults.standard.set(serverURL, forKey: "digestURL") }
     }
 
     private let cacheURL = FileManager.default
@@ -16,7 +16,7 @@ final class DigestStore: ObservableObject {
         .appendingPathComponent("digest.json")
 
     init() {
-        serverURL = UserDefaults.standard.string(forKey: "serverURL") ?? "http://localhost:8000/digest.json"
+        serverURL = UserDefaults.standard.string(forKey: "digestURL") ?? "https://tahirlifarid7-byte.github.io/econ-digest/digest.json"
         digest = loadCached() ?? loadSample()
     }
 

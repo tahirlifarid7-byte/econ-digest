@@ -1,0 +1,55 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+		A1000001 /* EconDigest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EconDigest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000002 /* EconDigest */ = {isa = PBXFileSystemSynchronizedRootGroup; path = EconDigest; sourceTree = "<group>"; exceptions = (A1000010); };
+		A1000010 = {isa = PBXFileSystemSynchronizedBuildFileExceptionSet; target = A1000005; membershipExceptions = (Info.plist); };
+		A1000003 = {isa = PBXGroup; children = (A1000002, A1000004); sourceTree = "<group>"; };
+		A1000004 /* Products */ = {isa = PBXGroup; children = (A1000001); name = Products; sourceTree = "<group>"; };
+		A1000005 /* EconDigest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1000008;
+			buildPhases = (A1000006, A1000007);
+			buildRules = ();
+			dependencies = ();
+			fileSystemSynchronizedGroups = (A1000002);
+			name = EconDigest;
+			productName = EconDigest;
+			productReference = A1000001;
+			productType = "com.apple.product-type.application";
+		};
+		A1000006 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A1000007 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A1000009 = {
+			isa = PBXProject;
+			attributes = {LastUpgradeCheck = 2700;};
+			buildConfigurationList = A100000B;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = A1000003;
+			productRefGroup = A1000004;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A1000005);
+		};
+		A100000B = {isa = XCConfigurationList; buildConfigurations = (A100000C); defaultConfigurationName = Release; };
+		A100000C = {isa = XCBuildConfiguration; name = Release; buildSettings = {
+			SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SWIFT_VERSION = 5.0; ALWAYS_SEARCH_USER_PATHS = NO;
+		}; };
+		A1000008 = {isa = XCConfigurationList; buildConfigurations = (A100000A); defaultConfigurationName = Release; };
+		A100000A = {isa = XCBuildConfiguration; name = Release; buildSettings = {
+			PRODUCT_BUNDLE_IDENTIFIER = com.farid.econdigest; PRODUCT_NAME = "$(TARGET_NAME)";
+			GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = EconDigest/Info.plist;
+			CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = W36BGUGSS7; CURRENT_PROJECT_VERSION = 1; MARKETING_VERSION = 1.0;
+			TARGETED_DEVICE_FAMILY = 1; SWIFT_EMIT_LOC_STRINGS = YES;
+			ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+			LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+		}; };
+	};
+	rootObject = A1000009;
+}

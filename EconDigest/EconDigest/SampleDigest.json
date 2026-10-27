@@ -1,0 +1,21 @@
+{
+  "date": "demo",
+  "generated_at": "2026-01-01T00:00:00+00:00",
+  "indicators": [
+    {"name": "USD/TRY", "value": "—", "change": null},
+    {"name": "BIST 100", "value": "—", "change": null},
+    {"name": "Brent", "value": "—", "change": null}
+  ],
+  "world": {
+    "summary": "Демо-данные. Запустите backend/digest.py, чтобы получить реальную сводку.",
+    "items": [
+      {"title": "Пример мировой новости", "detail": "Здесь появится краткое описание события и его влияния на рынки.", "impact": "neutral", "source": "demo", "url": null}
+    ]
+  },
+  "turkey": {
+    "summary": "Демо-данные. Реальная сводка по Турции появится после запуска агента.",
+    "items": [
+      {"title": "Пример новости по Турции", "detail": "Здесь появится описание: решения TCMB, инфляция, курс лиры, BIST.", "impact": "neutral", "source": "demo", "url": null}
+    ]
+  }
+}

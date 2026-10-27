@@ -23,8 +23,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Generate digest
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 backend/digest.py
       - uses: actions/upload-pages-artifact@v3
         with:

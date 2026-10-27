@@ -1,21 +1,148 @@
 {
-  "date": "demo",
-  "generated_at": "2026-01-01T00:00:00+00:00",
+  "date": "28.10.2026",
+  "generated_at": "2026-10-28T02:39:57.029122+03:00",
   "indicators": [
-    {"name": "USD/TRY", "value": "—", "change": null},
-    {"name": "BIST 100", "value": "—", "change": null},
-    {"name": "Brent", "value": "—", "change": null}
+    {
+      "name": "USD/TRY",
+      "value": "49.79",
+      "change": "ЦБ Турции, 27.10.2026"
+    },
+    {
+      "name": "EUR/TRY",
+      "value": "55.52",
+      "change": "ЦБ Турции, 27.10.2026"
+    },
+    {
+      "name": "EUR/USD",
+      "value": "1.1186",
+      "change": null
+    },
+    {
+      "name": "USD/RUB",
+      "value": "80.79",
+      "change": null
+    }
   ],
   "world": {
-    "summary": "Демо-данные. Запустите backend/digest.py, чтобы получить реальную сводку.",
+    "summary": "Главное: Toyota отзовет более 228 тысяч автомобилей из-за опасных сидений",
     "items": [
-      {"title": "Пример мировой новости", "detail": "Здесь появится краткое описание события и его влияния на рынки.", "impact": "neutral", "source": "demo", "url": null}
+      {
+        "title": "Toyota отзовет более 228 тысяч автомобилей из-за опасных сидений",
+        "detail": "27.10 23:24",
+        "impact": null,
+        "source": "АСТВ",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQV1FQLWJjTVFjOFpBbWF5NU5FTnVPZ09HZV9aaXhZcDNLS29UQnR3eHhobVI1MHFKaHNRNVN1WHRWbDV3ZHROdE0wcWk1ZXhXMHAxX0pJWE5qTFBnQmFsUmdFV29uZFA4ODYwbU9RRG1iM3NudXFEMmNOWXhwMzJFaGVpbl9iMGNoR0lna3FraHdNVmFicXNfc1lDUnBhUElITlB6TmlzWXhzUQ?oc=5"
+      },
+      {
+        "title": "JELAND J6: почему его называют одним из самых подготовленных кроссоверов к зиме",
+        "detail": "27.10 22:18",
+        "impact": null,
+        "source": "Китайские автомобили",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRjNkNEUzLWtvS2dVTTNpS3VSWl9RVExmemVCUU9tOU1VZ2Z2dFdDLTJxYUlvT3BLQnZaMjlLYVltMVlNSWtsNXJpUjNVOUJnX2s0TGxkVUM0V3FYYlA0MVdJa0dxcGJJVDdfaU5fVlBqYTFzd3VoR1U0SURoUEJQLW84a0ZtLXB1ZkNheW9WWDB6cXhwOHlqMkh2RFNYSjJyV25XYzYzT3BXc1VJbUE?oc=5"
+      },
+      {
+        "title": "США нашли новый повод запретить роутеры TP-Link — они слишком мощные",
+        "detail": "27.10 18:19",
+        "impact": null,
+        "source": "3DNews",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQT2FsME9RU1czVENJMWVjeTF1RFRtb2VBUDU4WHJKTkFZU3l5dGhsUHpCQkhWNjZHbGtWNm1NYkpUekhyeVlscUNLbmhxWWc3Zl9TTTgzNmJZbW9fTmhZT1Q3cHlqS1prWUo1dXdjMlRsYUxIc3diMi1iak9XcmxHbVdId2t4SC1oQnkwS2w2aGVJT05qMzlzV004bUHSAaIBQVVfeXFMTThNck9kSU1jM05YNWFzcUE3dmppRlp6ZWpfdEFZLU0wVFN3OGgyd0Z2SExvS0dETlkzak1oa0MyYkF0WmtkTHByb1ZxZ3pxM3NMcHdzeU5ILXB3c3ktbkhhWlVKVVZzdDZjODFNSXNtQzlCdG9TdFZfUDRzZDJ3aGN3ZXF4NkhSTWZLS1hpTVZ2R2tudWRvdUV6SmttbjRrQi1R?oc=5"
+      },
+      {
+        "title": "Названы самые доступные автомобили с автоматом на российском рынке",
+        "detail": "27.10 17:55",
+        "impact": null,
+        "source": "Авто Mail",
+        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNTBHRWNkc1p3VUlibklDNVplRFlXT2JIcW9aR01TTjUtZTQydktScUZIWmtLM3lSSWYtbTU5WTIyeDVqWHNISE9RTV9mQS1kdjROTFlkUHJPZmVSeXlMZTY3OThrbkdITHVXYkUyRDEzbm9XcW9BMjdFQkJySlRQR2FscmE2c2pPZnB0cmtqbWxsVzgtdUdEbkZHUE1kTjdnY0htMExabXJFblk?oc=5"
+      },
+      {
+        "title": "В Россию привезли новые седаны Kia K5",
+        "detail": "27.10 17:30",
+        "impact": null,
+        "source": "Авто Mail",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPZTdRS0JxNFZ0dnEzM0NxWTNKRDFDLUFFWDM1V1BhcF90UlZ1X3JwTHliNnpCeVFqaEdDWThVTzI1ajg3S2VBNjR4S0Jac3p6M1pjUUlBbFVSY1RBSXRmNVhTQ0M0R0hNZjVIUURocVUxdHpySzE4MmhDLVBwQ3RTMQ?oc=5"
+      },
+      {
+        "title": "LADA Azimut делает ставку на искусственный интеллект и цифровой кокпит — подробный разбор новых технологий кроссовера",
+        "detail": "27.10 17:27",
+        "impact": null,
+        "source": "Новости Тольятти",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQVjZtWE00bnV5Njk3ZWpyekx5LWlVUDR4a3RmLVVUZ3dLTm9Mak56WUNVMFpKM01RY3ZVVlF3YVRfYklSOEJ3UUc3VVVyU3E4LVc1WUxZWHc1RHJVQ0FlMWtZSHJFVkh4Y2x2UEVNVDdldGJSOW9UQU1KU1dFSXhwN0EwcDNILXBsRUdfc3RLeGUtREgxWFB3RDBsS0lvNURHSkNzYWhVOGlqbzQxejl5UEdMMGt3V3paSnhkUWp1U3VHajNzXzlKYklfZTA1TVZNS1l4XzF3?oc=5"
+      },
+      {
+        "title": "Для мотоциклистов-путешественников разработали кемпер-коляску",
+        "detail": "27.10 17:21",
+        "impact": null,
+        "source": "Авто.ру",
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQTjdvRlhRZzBIa00wR1Z3SGdiVDdha1Qwd1Q2ci1wYWhYcGlWQU8tM2w1WGlUMDV4T2tkVkt5NllJSUpRcEFGVU91aTZxbmtyV054Rkg1WTl6R1FyUzZmX2lYRUUtU2h5ZlZKREZFdWloYmxzcW9QRHBzbzNDck81Wlc0Z0FhV1E4VlVHdy1ZYUNSMGUzTlE?oc=5"
+      },
+      {
+        "title": "Россияне бросились скупать старые авто и «китайцев»: суммы удивляют",
+        "detail": "27.10 17:10",
+        "impact": null,
+        "source": "Авто Mail",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPQ01MYmJ6UXFUT0FMSEdCdTA3dUgzSHlaZ0NaRmdQNjVUT3Y0MFRGTTQ4NERVVVQwME5CTklVWC1DUGxQVWI2MjhLS2xMTWxzOWlNczd1NHkyTHVHNVFkeFl3ZVYwbUw0NURyX0tZNlpOYjBBUl9idW9GMVotZmlRNXZlVzczZVFzbWp3Qnd1Q2hYN2hDN0ROdnZVY3ZjOEl4WWlBeHZJY09HanJsdHAtYXR3?oc=5"
+      }
     ]
   },
   "turkey": {
-    "summary": "Демо-данные. Реальная сводка по Турции появится после запуска агента.",
+    "summary": "Главное: Argus: КНР, Индия и Турция стали главными покупателями российской нефти",
     "items": [
-      {"title": "Пример новости по Турции", "detail": "Здесь появится описание: решения TCMB, инфляция, курс лиры, BIST.", "impact": "neutral", "source": "demo", "url": null}
+      {
+        "title": "Argus: КНР, Индия и Турция стали главными покупателями российской нефти",
+        "detail": "27.10 21:13",
+        "impact": null,
+        "source": "Общественная служба новостей",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWVZGTXplckM4QzhNQ0l0dnV4Nl9EWk5PZEphTnEzdjR1ZjFWTGFYeVBCZDdDbWFTdmtrbFRLWmQyTG9rUm15NEV5NEFPSVhpbWxhNkVGOFQxbHd4MDFRb0tZd2NqaHJJbzRJZWNDaFR1cDJNM0lOWTJqZXpxcXdZdVIwZ3hGemo4WHZmVF80U3pOYm9EclVzb3ptalJtWHc5N0JtUEdVMWRxZzFk?oc=5"
+      },
+      {
+        "title": "Министр энергетики: До сих пор в Турцию было экспортировано свыше 131 миллиарда, Европу - более 66 миллиардов кубометров газа",
+        "detail": "27.10 20:00",
+        "impact": null,
+        "source": "br.az",
+        "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQWDVxQ08tNkZFLWFFX1JDS2Q0YkpEY2MxdzZHWVBHMEtwbXkyS3pSYXJPdnRpWGo1ZWNMUnFwTjVsUDRjaGJqUEtrOVVhRzRpUjQ0VmdrQURYRGdMNWZXV0psZzhLZ0FyM2l4THFBZkJTM01xczZhQVg1N1RBaFVYZ2czRFRPdmJhSnRWdTI0Wlp3b0VqZU13VUQ0dEpmTjVHWU5PQlBWaE1SemZYMDloYzQyQnUtX2pQQ2hMWWFRTlhBbDZPNmFDb0pCX2ZvSUNlcElVal9qa2FKT3BDYlpRWEhmWVA1VGlZ?oc=5"
+      },
+      {
+        "title": "В Турции человекоподобный робот MEGA помогает муниципальной полиции проверять торговые точки",
+        "detail": "27.10 18:49",
+        "impact": null,
+        "source": "Anadolu Ajansı",
+        "url": "https://news.google.com/rss/articles/CBMizwZBVV95cUxObWRyOE5MSURGOVRreGN5OXg4bWdjekMwcWNnekNKU3FrV2pMNUtJUjBYWlJmRW8zUkZSLS1IYjZMWTJhU21Yc2xHMDJPclh4NEYwZ3pIektOWXRGUFNNMkxaNVBfS1hpU0FXUUkyZWttbm54aTlaVlc5VkRmVDQyWU5pYzc4amlCYW52MWFmTDNfVGUzTWNwdVZQQXZOejQxTUYwQW9MeThYalpFc3RTMFJBQk9Qa0FUQ3lBU3RDeHJPeks4X1BOQm8yTmZjQVBvTEQ3SU1ieG9QWDJZTlpCYXhPUUF2allndEpObGNFZlhyemJnc3RUX09nNmxZdk1JVVhWd19mNWFRZTZXZVliMmlXQ01EY1ZrWFVlZzBUR3R5MjBhTnJmUWh5OXo2M2M1OUdZeGs2bGpjclZqX28tMWtEUUExWmxrTXNwRzA1VTRYTzNmbUJOckJ6OHlDeURwOEZPbXAwVzBJY1ZGTmNhR1h0X19PZ2lvNGM5aTlReDNZOGJ4dW5lNWhhSXpaY0pRVEs5MUxNcG5IUWFobmwweVpNbklueUlwRWJMMGNxUzcyMnZmT05qRVdoNjR4SFhTWmFnTlRtM1I2aUdiOGhMYnNoYXd5bnZLeUlGWmloRDZQZEd5QU1fd0cxbTdKUUg0V3c0WkdfbkZpSzN5MlZtM3pRQkxpaWdXTVQ0T25xQjI4b1I3Q2NXc2hNTzhXd3JrZGNEMjRGUVRqMWpZazdvX0I2YWdiS05FNzhPd3FCOFVHOGs2QjZSa0JIQlFVUl96ejZuT0pubF94aVZFeGZ3NkxocGFtbzdiTk1WX2RJdmVpNWc5WklLVXY4NXk4VW80ZmVMUXBuSDlhQmZ4X2w2T0lMOGE5Um9raVU4V3dIXzJRa3BTVEh0ZERxSTJVOUhLdTZTN05zemRHLW1xbjJaR0J1Sk9Uak1qc3p4Rk14ZkFYYzNqbVlyUFJhMUN3ZDc5bzhaaHpEYkVXSnhxR2g3bUFRYkg4cjJsSVhELUhhZzNESjFMZ2J0dUNFQlk2LVFEQU5iQWdKWVViNHZlaUd5bFFxY1lQcGVmd2xpdmFJcTJqNlNZSEtBQW95VU9ydi1mY2lVNzdjWlZEZnNiVHEw?oc=5"
+      },
+      {
+        "title": "Пярвиз Шахбазов: Азербайджан на сегодняшний день поставил Турции 131 млрд м³ газа",
+        "detail": "27.10 17:41",
+        "impact": null,
+        "source": "Report.az",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOc0NReDdSX2pOVS1YYXJnSmw5bDJzYW1vVFZYR2lPaFk1ZFhKZFJmdHpqSWhKdU1raUN0NzlfMS1rTnIyMXBfR3FXOVNBOEJwX2RnTVRnT2dzR1BoNnNGNUZDV3JrVll3RHNlNkdHSGU0RjJveVJQMzFCOElkS3lNdHM2a1pCbHlmRmFzNVQweFMyVWpZamh3SUxPbEhYTFlva1hRaWZENUh0LVp1NEhiUnVmNFRSdGxaUFE?oc=5"
+      },
+      {
+        "title": "Путин раскрыл объемы поставляемого в Турцию российского газа",
+        "detail": "27.10 17:04",
+        "impact": null,
+        "source": "NEWS.ru",
+        "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSE5FbmJLMFpGUUdVSmxFeWdaSWtxVzhPVl9MdmVoa2h2MFdnQVVGYXF0VlNFUzhBWWJLTHlrZThvd0wyd2tQRERlazVQUlpBLUJhYVFWRXZ6Xzk3amFfXzBHNUhacS1UQmRDTTNsank5M2p4czNYWVMyRmtqTnNMUFhrT3NxLVkzZmw2dkdhSnjSAZABQVVfeXFMTkhORW5iSzBaRlFHVUpsRXlnWklrcVc4T1ZfTHZlaGtodjBXZ0FVRmFxdFZTRVM4QVliS0x5a2U4b3dMMndrUEREZWs1UFJaQS1CYWFRVkV2el85N2phX18wRzVIWnEtVEJkQ00zbGp5OTNqeHMzWFlTMkZrak5zTFBYa09zcS1ZM2ZsNnZHYUp4?oc=5"
+      },
+      {
+        "title": "Путин сообщил о поставках газа в Турцию: объемы, сотрудничество с Азербайджаном, саммит ФСЭГ",
+        "detail": "27.10 17:04",
+        "impact": null,
+        "source": "Финансы Mail",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPN1pZUklBV002QXBxRkNGblNrdjlWWDB2MEZ0Rm1rZjBEcnBQeTFpbl8za3UtS3ZQYnI4WVRBQTJPbHBTWk5CRTR6SU4zRnp6RlVYVy02bkxhXzBHZVgwX2xsZHhDTlhIZUNENXRSMjRueTB5Z0J1QzY1TWI3ZWR1d1dDOXo3empBc0RjZkpJZ1J0YXZVMXByZ28wTmVvbDFNLVlNVHozYlBWZXhO?oc=5"
+      },
+      {
+        "title": "Турция открыла ранее бронирование: стали известны цены на отели на лето-2027",
+        "detail": "27.10 17:02",
+        "impact": null,
+        "source": "Tourprom",
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5IT25tbnZ3WmJ1bk9sYVRXOVZKR2hFLWNnUkhEWDJfakJjaHVkU3BYbTJhN2VleUFLTTNRaDVxSkx0cWE2U0tObXc5SQ?oc=5"
+      },
+      {
+        "title": "Путин назвал Азербайджан надёжным партнёром России и рассказал о поставках газа в Турцию",
+        "detail": "27.10 16:53",
+        "impact": null,
+        "source": "NEWS.am",
+        "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9vcVhMSnlfQ0hWSURsU3prWDlGU3FoRDBMby1TbUpHNWQ0SThRYmsyUm4wOTRrQ244YnhpUkF5bVN2Z3hFdmc?oc=5"
+      }
     ]
   }
 }

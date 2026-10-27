@@ -1,79 +1,112 @@
 #!/usr/bin/env python3
-"""Daily economy digest agent: asks Claude (with web search) for today's world and
-Turkey economy news and writes out/digest.json for the iOS app.
+"""Free daily economy digest: Russian-language headlines from Google News RSS
+(world business + Turkey economy) and lira rates from the Central Bank of Turkey.
+Writes out/digest.json for the iOS app. No API keys, standard library only.
 
-Usage: ANTHROPIC_API_KEY=sk-ant-... python3 digest.py
+Usage: python3 digest.py
 """
 import json
-import os
 import sys
-import urllib.error
+import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
-MODEL = os.environ.get("DIGEST_MODEL", "claude-sonnet-5-5")
 OUT = Path(__file__).parent / "out" / "digest.json"
-
-PROMPT = """Сегодня {today}. Найди через веб-поиск самые важные экономические события за последние 24-48 часов:
-1) в мире (центробанки и ставки, инфляция, рынки, нефть/газ/золото, торговля и тарифы, крупные экономики);
-2) в Турции (решения TCMB, инфляция TÜİK, курс лиры, BIST 100, внешняя торговля, бюджет, рейтинги, реформы).
-
-Правила: только факты из найденных источников, ничего не выдумывай. Если данных нет, пиши null.
-Пиши по-русски, кратко и по делу. 5-7 новостей на раздел.
-
-Верни ТОЛЬКО JSON без пояснений и markdown, строго такой формы:
-{{
-  "date": "{today}",
-  "indicators": [{{"name": "USD/TRY", "value": "строка", "change": "строка или null"}}],
-  "world":  {{"summary": "2-3 предложения о главном", "items": [{{"title": "", "detail": "1-2 предложения", "impact": "positive|negative|neutral", "source": "название издания", "url": "https://..."}}]}},
-  "turkey": {{"summary": "...", "items": [ ...как выше... ]}}
-}}
-В indicators включи, если нашёл: USD/TRY, EUR/TRY, BIST 100, Brent, золото, ключевая ставка TCMB, ставка ФРС."""
+UA = {"User-Agent": "Mozilla/5.0 (econ-digest)"}
+GN = "https://news.google.com/rss"
+GN_RU = "hl=ru&gl=RU&ceid=RU:ru"
+WORLD_FEED = f"{GN}/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FuSjFHZ0pTVlNnQVAB?{GN_RU}"
+TURKEY_QUERY = ("Турция (экономика OR лира OR инфляция OR ЦБ OR ставка OR экспорт OR бюджет OR биржа "
+                "OR нефть OR газ OR инвестиции OR туризм OR цены) when:3d")
+TURKEY_FEED = f"{GN}/search?q={urllib.parse.quote(TURKEY_QUERY)}&{GN_RU}"
+ITEMS_PER_SECTION = 8
+# Turkey search also returns politics; keep headlines that look economic
+ECONOMY_WORDS = ("эконом", "лир", "инфляц", "банк", "ставк", "экспорт", "импорт", "ввп", "рын",
+                 "бирж", "bist", "нефт", "газ", "резерв", "бюджет", "инвест", "туризм", "цен",
+                 "курс", "доллар", "евро", "налог", "торгов", "долг", "рейтинг", "зарплат", "аэс")
+MSK = timezone(timedelta(hours=3))  # Istanbul and Moscow are both UTC+3
 
 
-def call_claude(api_key: str, today: str) -> str:
-    body = {
-        "model": MODEL,
-        "max_tokens": 6000,
-        "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": 8}],
-        "messages": [{"role": "user", "content": PROMPT.format(today=today)}],
-    }
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
-        data=json.dumps(body).encode(),
-        headers={
-            "x-api-key": api_key,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-    )
+def fetch(url: str) -> bytes:
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as resp:
+        return resp.read()
+
+
+def news(url: str, keywords: tuple = ()) -> list[dict]:
+    items, seen = [], set()
+    for it in ET.fromstring(fetch(url)).iter("item"):
+        title = (it.findtext("title") or "").strip()
+        source = it.findtext("source") or None
+        # Google News titles end with " - Source"
+        if source and title.endswith(" - " + source):
+            title = title[: -len(source) - 3]
+        if not title or title.lower() in seen:
+            continue
+        if keywords and not any(k in title.lower() for k in keywords):
+            continue
+        seen.add(title.lower())
+        try:
+            published = parsedate_to_datetime(it.findtext("pubDate")).astimezone(MSK)
+        except (TypeError, ValueError):
+            published = None
+        items.append({
+            "title": title,
+            "detail": published.strftime("%d.%m %H:%M") if published else "",
+            "impact": None,
+            "source": source,
+            "url": it.findtext("link"),
+            "_ts": published.timestamp() if published else 0,
+        })
+    items.sort(key=lambda i: i["_ts"], reverse=True)
+    for i in items:
+        del i["_ts"]
+    return items[:ITEMS_PER_SECTION]
+
+
+def section(url: str, keywords: tuple = ()) -> dict:
+    items = news(url, keywords)
+    summary = f"Главное: {items[0]['title']}" if items else "Новостей пока нет."
+    return {"summary": summary, "items": items}
+
+
+def indicators() -> list[dict]:
+    result = []
     try:
-        with urllib.request.urlopen(req, timeout=300) as resp:
-            data = json.load(resp)
-    except urllib.error.HTTPError as e:
-        raise SystemExit(f"Anthropic API error {e.code}: {e.read().decode()}")
-    return "".join(b.get("text", "") for b in data["content"] if b["type"] == "text")
-
-
-def extract_json(text: str) -> dict:
-    start, end = text.find("{"), text.rfind("}")
-    if start < 0 or end < start:
-        raise ValueError("no JSON object in model reply:\n" + text[:500])
-    return json.loads(text[start : end + 1])
+        root = ET.fromstring(fetch("https://www.tcmb.gov.tr/kurlar/today.xml"))
+        for code in ("USD", "EUR"):
+            cur = root.find(f"Currency[@Kod='{code}']")
+            rate = cur.findtext("ForexSelling") if cur is not None else None
+            if rate:
+                result.append({"name": f"{code}/TRY", "value": f"{float(rate):.2f}",
+                               "change": f"ЦБ Турции, {root.get('Tarih')}"})
+    except Exception as e:  # rates are optional; news still ships
+        print(f"TCMB rates unavailable: {e}", file=sys.stderr)
+    try:
+        rates = json.loads(fetch("https://open.er-api.com/v6/latest/USD"))["rates"]
+        result.append({"name": "EUR/USD", "value": f"{1 / rates['EUR']:.4f}", "change": None})
+        if "RUB" in rates:
+            result.append({"name": "USD/RUB", "value": f"{rates['RUB']:.2f}", "change": None})
+    except Exception as e:
+        print(f"FX rates unavailable: {e}", file=sys.stderr)
+    return result
 
 
 def main() -> int:
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("Set ANTHROPIC_API_KEY", file=sys.stderr)
-        return 1
-    today = datetime.now().strftime("%Y-%m-%d")
-    digest = extract_json(call_claude(api_key, today))
-    digest["generated_at"] = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(MSK)
+    digest = {
+        "date": now.strftime("%d.%m.%Y"),
+        "generated_at": now.isoformat(),
+        "indicators": indicators(),
+        "world": section(WORLD_FEED),
+        "turkey": section(TURKEY_FEED, ECONOMY_WORDS),
+    }
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(digest, ensure_ascii=False, indent=2))
-    print(f"Wrote {OUT}")
+    print(f"Wrote {OUT}: {len(digest['world']['items'])} world, "
+          f"{len(digest['turkey']['items'])} Turkey, {len(digest['indicators'])} indicators")
     return 0
 
 

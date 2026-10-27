@@ -7,6 +7,7 @@ Usage: ANTHROPIC_API_KEY=sk-ant-... python3 digest.py
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -47,8 +48,11 @@ def call_claude(api_key: str, today: str) -> str:
             "content-type": "application/json",
         },
     )
-    with urllib.request.urlopen(req, timeout=300) as resp:
-        data = json.load(resp)
+    try:
+        with urllib.request.urlopen(req, timeout=300) as resp:
+            data = json.load(resp)
+    except urllib.error.HTTPError as e:
+        raise SystemExit(f"Anthropic API error {e.code}: {e.read().decode()}")
     return "".join(b.get("text", "") for b in data["content"] if b["type"] == "text")
 
 
